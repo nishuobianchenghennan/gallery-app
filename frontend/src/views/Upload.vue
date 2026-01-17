@@ -32,7 +32,7 @@ const rules: FormRules = {
   ],
   description: [
     { required: true, message: '请输入作画心得感悟', trigger: 'blur' },
-    { min: 10, max: 2000, message: '心得感悟至少 10 个字符', trigger: 'blur' }
+    { min: 5, max: 2000, message: '心得感悟至少 5 个字符', trigger: 'blur' }
   ]
 }
 
@@ -50,10 +50,10 @@ const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
     return false
   }
 
-  // 检查文件大小（限制10MB）
-  const isLt10M = rawFile.size / 1024 / 1024 < 10
-  if (!isLt10M) {
-    ElMessage.error('图片大小不能超过 10MB')
+  // 检查文件大小（限制20MB）
+  const isLt20M = rawFile.size / 1024 / 1024 < 20
+  if (!isLt20M) {
+    ElMessage.error('图片大小不能超过 20MB')
     return false
   }
 
@@ -61,9 +61,25 @@ const beforeUpload: UploadProps['beforeUpload'] = (rawFile) => {
   form.image = rawFile
 
   // 生成预览URL
+  if (imageUrl.value) {
+    URL.revokeObjectURL(imageUrl.value)
+  }
   imageUrl.value = URL.createObjectURL(rawFile)
 
   return false // 阻止自动上传
+}
+
+/**
+ * 文件改变时的处理
+ */
+const handleChange: UploadProps['onChange'] = (uploadFile) => {
+  if (uploadFile.raw) {
+    form.image = uploadFile.raw
+    if (imageUrl.value) {
+      URL.revokeObjectURL(imageUrl.value)
+    }
+    imageUrl.value = URL.createObjectURL(uploadFile.raw)
+  }
 }
 
 /**
@@ -134,7 +150,9 @@ const goBack = () => {
             v-model:file-list="fileList"
             class="upload-image"
             :show-file-list="false"
+            :auto-upload="false"
             :before-upload="beforeUpload"
+            :on-change="handleChange"
             :on-remove="handleRemove"
             accept="image/*"
           >
