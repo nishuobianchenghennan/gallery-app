@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
 import bcrypt from 'bcryptjs'
-import type { Env, User, JWTPayload } from './types'
-import { success, fail, isValidEmail, isValidUsername } from './utils'
-import { generateToken, authMiddleware } from './auth'
+import type { Env, User, JWTPayload } from '../types'
+import { success, fail, isValidEmail, isValidUsername } from '../utils'
+import { generateToken, authMiddleware } from '../auth'
 
 const authRouter = new Hono<{ Bindings: Env }>()
 
