@@ -8,7 +8,7 @@ compatibility_date = "2024-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "gallery-db"
-database_id = ""  # 留空，将在部署时通过 GitHub Secrets 或手动配置
+database_id = "24cf103d-4e2b-4ac1-b554-dc3f8c135835"  # 留空，将在部署时通过 GitHub Secrets 或手动配置
 
 # R2 存储绑定
 [[r2_buckets]]
