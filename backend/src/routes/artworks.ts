@@ -136,7 +136,7 @@ artworkRouter.post('/', authMiddleware, async (c) => {
     })
 
     // 生成图片URL（需要配置R2的公共访问域名）
-    const imageUrl = `https://pub-a026973b9a044c20bf34ad0a16883d07.r2.dev/${fileName}`
+    const imageUrl = `https://your-r2-domain.com/${fileName}`
 
     // 插入作品记录
     const result = await c.env.DB.prepare(`

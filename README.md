@@ -2,13 +2,14 @@
 
 <div align="center">
 
-一个基于 Cloudflare 全栈的现代化画廊应用
+一个支持多平台部署的现代化画廊应用
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-orange)](https://workers.cloudflare.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-Supported-black)](https://vercel.com/)
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-green)](https://vuejs.org/)
 
-[在线演示](#) | [快速开始](QUICKSTART.md) | [完整文档](DEPLOY.md)
+[在线演示](#) | [快速开始](QUICKSTART.md) | [平台选择](PLATFORM_COMPARISON.md)
 
 </div>
 
@@ -18,43 +19,62 @@
 - 🖼️ **作品上传**: 支持图片上传，记录作画心得感悟
 - 🎨 **画廊展示**: 瀑布流式卡片展示，所有用户共享画廊
 - 📱 **响应式设计**: 适配各种屏幕尺寸
-- ⚡ **全球 CDN**: Cloudflare 全球加速，访问速度快
-- 💰 **零成本**: 使用 Cloudflare 免费套餐即可运行
-- 🚀 **自动部署**: 通过 GitHub Actions 实现 CI/CD
+- ⚡ **全球 CDN**: 全球加速，访问速度快
+- 💰 **零成本**: 使用免费套餐即可运行
+- 🚀 **自动部署**: 通过 GitHub 实现 CI/CD
+- 🌍 **多平台支持**: Cloudflare、Vercel、Railway 等
 
-## 📚 文档
+## 🎯 选择部署平台
 
+### Cloudflare D1 无法创建？
+
+如果你在使用 Cloudflare D1 时遇到问题，我们提供了多个优秀的替代方案：
+
+| 平台 | 推荐指数 | 国内访问 | 免费额度 | 部署难度 |
+|------|---------|---------|---------|---------|
+| **Vercel + Supabase** ⭐ | ⭐⭐⭐⭐⭐ | ✅ 优秀 | 充足 | 简单 |
+| **Cloudflare** | ⭐⭐⭐⭐ | ⚠️ 一般 | 充足 | 中等 |
+| **Railway** | ⭐⭐⭐⭐ | ✅ 良好 | $5/月 | 简单 |
+
+**详细对比**: [平台对比指南](PLATFORM_COMPARISON.md)
+
+## 📚 部署文档
+
+### 推荐方案（国内用户）
+
+- **[Vercel + Supabase 部署指南](DEPLOY_VERCEL_SUPABASE.md)** ⭐ 最推荐
+  - 国内访问速度快
+  - 免费额度充足
+  - 部署简单
+  - 功能强大
+
+### 其他方案
+
+- **[Cloudflare 部署指南](DEPLOY.md)** - 如果 D1 可用
+- **[平台对比指南](PLATFORM_COMPARISON.md)** - 选择最适合你的平台
 - **[快速开始](QUICKSTART.md)** - 5分钟快速部署
-- **[完整部署指南](DEPLOY.md)** - 详细的部署步骤和配置说明
-- **[部署检查清单](CHECKLIST.md)** - 确保部署成功的检查清单
+- **[部署检查清单](CHECKLIST.md)** - 确保部署成功
 
 ## 🚀 快速开始
 
-### 方式一：GitHub + Cloudflare 自动部署（推荐）
+### 方式一：Vercel + Supabase（推荐）
 
-无需本地环境，通过 GitHub 和 Cloudflare 实现自动部署。
+1. 注册 Vercel 和 Supabase 账号
+2. 在 Supabase 创建项目和数据库
+3. 推送代码到 GitHub
+4. 在 Vercel 连接 GitHub 仓库
+5. 配置环境变量，自动部署
+
+详细步骤：[Vercel + Supabase 部署指南](DEPLOY_VERCEL_SUPABASE.md)
+
+### 方式二：Cloudflare 全家桶
 
 1. Fork 本仓库到你的 GitHub
 2. 在 Cloudflare 创建 D1 数据库和 R2 存储桶
 3. 配置 GitHub Secrets
 4. 推送代码，自动部署
 
-详细步骤请查看 [完整部署指南](DEPLOY.md)。
-
-### 方式二：本地开发
-
-需要 Node.js 18+ 和 Wrangler CLI。
-
-```bash
-# 安装依赖
-npm run install:all
-
-# 启动后端（需要先配置 Cloudflare）
-npm run dev:backend
-
-# 启动前端
-npm run dev:frontend
-```
+详细步骤：[Cloudflare 部署指南](DEPLOY.md)
 
 ## 技术栈
 
