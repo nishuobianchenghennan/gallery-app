@@ -1,0 +1,23 @@
+{
+  "name": "gallery-app",
+  "version": "1.0.0",
+  "description": "基于 Cloudflare 全栈的画廊应用",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy:backend": "cd backend && npm run deploy",
+    "install:all": "cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": [
+    "gallery",
+    "cloudflare",
+    "vue3",
+    "workers",
+    "d1",
+    "r2"
+  ],
+  "author": "",
+  "license": "MIT"
+}

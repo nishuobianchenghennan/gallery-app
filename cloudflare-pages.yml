@@ -1,0 +1,15 @@
+# Cloudflare Pages 构建配置
+
+# 构建命令
+build:
+  command: npm run build
+  cwd: frontend
+
+# 构建输出目录
+publish: frontend/dist
+
+# Node.js 版本
+node_version: 18
+
+# 环境变量（在 Cloudflare Pages 设置中配置）
+# VITE_API_BASE_URL: https://gallery-backend.your-subdomain.workers.dev/api
