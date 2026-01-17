@@ -18,4 +18,4 @@ bucket_name = "gallery-images"
 # 环境变量
 # 注意：生产环境的 JWT_SECRET 应该在 Cloudflare Dashboard 的 Workers 设置中配置
 [vars]
-JWT_SECRET = "dev-secret-key-change-in-production"
+JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4iLCJpYXQiOjE1MTYyMzkwMjIsImV4cCI6MTUxNjI0MjYyMn0.u_LWMNvPMXGV0X75rEbKVmGmcc9OjEV6TX6xXUK1zzQ"
